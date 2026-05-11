@@ -5,7 +5,6 @@ import { View, Text, StyleSheet, Button } from "react-native";
 // Ela vem de src/interfaces/ porque é usada em VÁRIOS lugares
 import { Consulta } from "../interfaces/consulta";
 
-
 type ConsultaCardProps = {
   consulta: Consulta;
 
@@ -13,13 +12,11 @@ type ConsultaCardProps = {
   onCancelar?: () => void;
 };
 
-
 export default function ConsultaCard({
   consulta,
   onConfirmar,
   onCancelar,
 }: ConsultaCardProps) {
-
   function formatarValor(valor: number): string {
     return valor.toLocaleString("pt-BR", {
       style: "currency",
@@ -27,8 +24,14 @@ export default function ConsultaCard({
     });
   }
 
-  function formatarData(data: Date): string {
-    return data.toLocaleDateString("pt-BR");
+  function formatarData(dataHora: string): string {
+    const data = new Date(dataHora);
+    const dia = data.toLocaleDateString("pt-BR");
+    const hora = data.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return `${dia} às ${hora}`;
   }
 
   return (
@@ -40,9 +43,7 @@ export default function ConsultaCard({
           consulta.status === "cancelada" && styles.statusCancelada,
         ]}
       >
-        <Text style={styles.statusTexto}>
-          {consulta.status.toUpperCase()}
-        </Text>
+        <Text style={styles.statusTexto}>{consulta.status.toUpperCase()}</Text>
       </View>
 
       <View style={styles.secao}>
@@ -64,10 +65,10 @@ export default function ConsultaCard({
 
       <View style={styles.secao}>
         <Text style={styles.label}>📅 Dados da Consulta</Text>
-        <Text style={styles.valor}>Data: {formatarData(consulta.data)}</Text>
         <Text style={styles.valor}>
-          Valor: {formatarValor(consulta.valor)}
+          Data: {formatarData(consulta.dataHora)}
         </Text>
+        <Text style={styles.valor}>Valor: {formatarValor(consulta.valor)}</Text>
         {consulta.observacoes && (
           <Text style={styles.observacoes}>{consulta.observacoes}</Text>
         )}
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   statusConfirmada: {
-    backgroundColor: "#4CAF50", 
+    backgroundColor: "#4CAF50",
   },
   statusCancelada: {
     backgroundColor: "#F44336",
