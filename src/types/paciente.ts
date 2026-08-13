@@ -4,8 +4,9 @@ export type Paciente = {
   cpf: string;
   email: string;
   dataDeNascimento: string;
-  idade: Int16Array;
+  idade: number;
   endereco: string;
-  telefone?: string;
+  numeroTelefone: string;
   sexo: string;
+  ativo: boolean;
 };

@@ -225,13 +225,38 @@ export default function App() {
                 {pacientes.map((paciente) => (
                   <View key={paciente.id} style={styles.card}>
                     <Text style={styles.cardNome}>{paciente.nome}</Text>
-                    <Text style={styles.cardInfo}>CPF: {paciente.cpf}</Text>
-                    <Text style={styles.cardInfo}>{paciente.email}</Text>
-                    {paciente.telefone && (
-                      <Text style={styles.cardInfo}>
-                        Tel: {paciente.telefone}
-                      </Text>
-                    )}
+
+                    <Text style={styles.cardInfo}>
+                      Data de nascimento: {paciente.dataDeNascimento}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      Idade: {paciente.idade}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      Sexo: {paciente.sexo}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      CPF: {paciente.cpf}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      Email: {paciente.email}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      Endereço: {paciente.endereco}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      Telefone: {paciente.numeroTelefone}
+                    </Text>
+
+                    <Text style={styles.cardInfo}>
+                      Cliente ativo: {paciente.ativo ? "Sim" : "Não"}
+                    </Text>
                   </View>
                 ))}
 

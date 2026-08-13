@@ -55,11 +55,16 @@ export default function ConsultaCard({
 
       <View style={styles.secao}>
         <Text style={styles.label}>👤 Paciente</Text>
-        <Text style={styles.valor}>{consulta.paciente.nome}</Text>
-        <Text style={styles.info}>CPF: {consulta.paciente.cpf}</Text>
-        <Text style={styles.info}>Email: {consulta.paciente.email}</Text>
-        {consulta.paciente.telefone && (
-          <Text style={styles.info}>Tel: {consulta.paciente.telefone}</Text>
+        <Text style={styles.valor}>Nome:{consulta.paciente.nome}</Text>
+        <Text style={styles.info}>Data de Nascimento:{consulta.paciente.dataDeNascimento}</Text>
+        <Text style={styles.info}>Idade:{consulta.paciente.idade}</Text>
+        <Text style={styles.info}>Sexo:{consulta.paciente.sexo}</Text>
+        <Text style={styles.info}>CPF:{consulta.paciente.cpf}</Text>  
+        <Text style={styles.info}>Email:{consulta.paciente.email}</Text>
+        <Text style={styles.info}>Endereço: {consulta.paciente.endereco}</Text>
+        <Text style={styles.info}>Cliente Ativo?: {consulta.paciente.ativo ? "Sim" : "Não"}</Text>
+        {consulta.paciente.numeroTelefone && (
+          <Text style={styles.info}>Tel: {consulta.paciente.numeroTelefone}</Text>
         )}
       </View>
 
