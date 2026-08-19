@@ -6,7 +6,7 @@ export type Paciente = {
   dataDeNascimento: string;
   idade: number;
   endereco: string;
-  numeroTelefone: string;
+  numeroTelefone?: string;
   sexo: string;
   ativo: boolean;
 };
