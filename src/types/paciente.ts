@@ -3,10 +3,5 @@ export type Paciente = {
   nome: string;
   cpf: string;
   email: string;
-  dataDeNascimento: string;
-  idade: number;
-  endereco: string;
-  numeroTelefone?: string;
-  sexo: string;
-  ativo: boolean;
+  telefone?: string;
 };

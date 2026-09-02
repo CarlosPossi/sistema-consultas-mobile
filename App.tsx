@@ -92,11 +92,11 @@ export default function App() {
           component={LoginMedicoScreen}
           options={{ title: "Acesso do Medico" }}
         />
-        <Stack.Screen name="CadastroMedico"
+        <Stack.Screen          name="CadastroMedico"
           component={CadastroMedicoScreen}
           options={{ title: "Cadastro de Medico" }}
         />
-        <Stack.Screen name="PerfilMedico"
+        <Stack.Screen          name="PerfilMedico"
           component={PerfilMedicoScreen}
           options={{ title: "Complete seu Perfil", headerBackVisible: false }}
         />
